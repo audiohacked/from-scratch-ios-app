@@ -31,21 +31,21 @@
 - (void)openURL:(NSURL*)url asPanel:(BOOL)flag;
 */
 #import "MobileAppDelegate.h"
-
+#import "MainView.h"
 @implementation MobileAppDelegate
 - (id)init
 {
 	if  ((self = [super init]))
 	{
 		window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-		//navController = 
+		mainViewController = [[MainView alloc] init];
 	}
 	return self;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[window addSubview:navController.view];
+	[window addSubview:mainViewController.view];
 	[window makeKeyAndVisible];
 	return YES;
 }
@@ -72,12 +72,11 @@
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
-	//[super applicationDidReceiveMemoryWarning:application];
 }
 
 - (void)dealloc
 {
-	[navController release];
+	[mainViewController release];
 	[window release];
 	[super dealloc];
 }

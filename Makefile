@@ -78,6 +78,7 @@ GEN_UUID := EA72E90C-C91B-11DF-8FC4-539D12B3A9FF
 
 TARGET := test
 OBJS := \
+	MainView.o \
 	MobileApp.o \
 	MobileAppDelegate.o \
 	main.o
@@ -106,3 +107,6 @@ code-sign: $(TARGET)
 install2sim: AppBundle
 	mkdir -p ~/Library/Application\ Support/iPhone\ Simulator/4.1/Applications/$(GEN_UUID)
 	cp -rf $(TARGET).app ~/Library/Application\ Support/iPhone\ Simulator/4.1/Applications/$(GEN_UUID)/
+
+run_sim: install2sim
+	open -a "iPhone Simulator"
