@@ -18,8 +18,12 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 #import <UIKit/UIKit.h>
-@interface MobileApp : UIApplication
+
+@interface SplashScreenController : NSViewController
 {
+	UIView * _SplashScreenView;
 }
 
+- (void) displayScreen;
+- (void) removeScreen;
 @end

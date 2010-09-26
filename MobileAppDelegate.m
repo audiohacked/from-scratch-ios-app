@@ -17,13 +17,35 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
+/*
+- (void)applicationDidFinishLaunching:(id)unused;
+- (void)applicationWillTerminate;
+- (void)applicationWillSuspend;
+- (void)deviceOrientationChanged:(GSEvent*)event;
+- (void)applicationResume:(GSEvent*)event;
+- (void)applicationSuspend:(GSEvent*)event;
+- (void)menuButtonUp:(GSEvent*)event;
+- (void)menuButtonDown:(GSEvent*)event;
+- (BOOL)launchApplicationWithIdentifier:(NSString*)identifier suspended:(BOOL)flag;
+- (void)openURL:(NSURL*)url;
+- (void)openURL:(NSURL*)url asPanel:(BOOL)flag;
+*/
 #import "MobileAppDelegate.h"
 
 @implementation MobileAppDelegate
+- (id)init
+{
+	if  ((self = [super init]))
+	{
+		window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+		//navController = 
+	}
+	return self;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	//[window addSubview:navigationController.view];
+	[window addSubview:navController.view];
 	[window makeKeyAndVisible];
 	return YES;
 }
@@ -50,11 +72,12 @@
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
+	//[super applicationDidReceiveMemoryWarning:application];
 }
 
 - (void)dealloc
 {
-	//[navigationController release];
+	[navController release];
 	[window release];
 	[super dealloc];
 }

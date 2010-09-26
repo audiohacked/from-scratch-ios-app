@@ -43,11 +43,19 @@ SIMULATE ?= yes
 ifeq ($(SIMULATE), yes)
 
 CC := /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2
-CFLAGS += -Wno-import -Werror
 CFLAGS += -arch i386
-CFLAGS += -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable
-CFLAGS += -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk
-CFLAGS += -fexceptions -fvisibility=hidden -mmacosx-version-min=10.6 -gdwarf-2 -fobjc-abi-version=2 -fobjc-legacy-dispatch
+CFLAGS += -Wno-import -Werror
+#CFLAGS += -pipe -std=c99
+#CFLAGS += -O0
+#CFLAGS += -Wreturn-type -Wunused-variable
+#CFLAGS += -Wno-trigraphs
+#CFLAGS += -fpascal-strings -fasm-blocks
+#CFLAGS += -fexceptions -fvisibility=hidden
+#CFLAGS += -fmessage-length=0
+#CFLAGS += -gdwarf-2
+CFLAGS += -fobjc-abi-version=2
+CFLAGS += -fobjc-legacy-dispatch
+CFLAGS += -mmacosx-version-min=10.6
 CFLAGS += -D__IPHONE_OS_VERSION_MIN_REQUIRED=40100
 CFLAGS += -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk
 LDFLAGS += -Xlinker -objc_abi_version -Xlinker 2

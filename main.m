@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 	int ret = 0;
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-	ret = UIApplicationMain(argc, argv, /*MobileApp*/nil, /*@"MobileAppDelegate"*/nil);
+	ret = UIApplicationMain(argc, argv, @"MobileApp", @"MobileAppDelegate");
 
 	[pool release];
 	return ret;
