@@ -21,6 +21,10 @@
 #import "SplashScreenController.h"
 
 @implementation SplashScreenController
+- (void) loadView
+{
+}
+
 - (void) displayScreen
 {
 	UIViewController *displayViewController = [[UIViewController alloc] init];
