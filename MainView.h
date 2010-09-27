@@ -18,9 +18,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 #import <UIKit/UIKit.h>
-@interface MainView : UIViewController
+@interface MainView : UITabBarController
 {
-	UITabBarController * tabBar;
 }
 
 @end

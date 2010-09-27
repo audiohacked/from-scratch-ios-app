@@ -33,6 +33,8 @@
 #import "MobileAppDelegate.h"
 #import "MainView.h"
 @implementation MobileAppDelegate
+@synthesize window;
+@synthesize mainViewController;
 - (id)init
 {
 	if  ((self = [super init]))

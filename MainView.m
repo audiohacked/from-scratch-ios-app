@@ -22,33 +22,27 @@
 @implementation MainView
 - (void)loadView
 {
-	//self.view = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds] style:UITableViewStyleGrouped];
-	self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-	/*
-	 * From here you can use a NavigationBar/NavigationController to get a
-	 * Settings-App-type interface
-	 */
-
+	[super loadView];
 	/*
 	 * For this App, we're going to use a TabBar interface...
 	 */
 	NSMutableArray *localControllersArray = [[NSMutableArray alloc] initWithCapacity:3];
-	tabBar = [[UITabBarController alloc] init];
-	
+
 	/*
 	 * Now we add our Tabs!
 	 * Tab One Controller here!
 	 */
-	UIViewController * tabOneController = [[UIViewController alloc] init];
+	UITableViewController * tabOneController = [[UITableViewController alloc] init];
+	UINavigationController * navCtrl = [[UINavigationController alloc] initWithRootViewController:tabOneController];
 	tabOneController.title = @"TabOne";
+	[tabOneController.tableView addSubview:navCtrl.navigationBar];
 	[localControllersArray addObject:tabOneController];
 	[tabOneController release];
 
 	/*
 	 * Tab Two Controller here!
 	 */
-	UIViewController * tabTwoController = [[UIViewController alloc] init];
+	UITableViewController * tabTwoController = [[UITableViewController alloc] initWithStyle:UITableViewStyleGrouped];
 	tabTwoController.title = @"TabTwo";
 	[localControllersArray addObject:tabTwoController];
 	[tabTwoController release];
@@ -56,24 +50,22 @@
 	/*
 	 * Tab Two Controller here!
 	 */
-	UIViewController * tabThreeController = [[UIViewController alloc] init];
+	UITableViewController * tabThreeController = [[UITableViewController alloc] init];
 	tabThreeController.title = @"TabThree";
 	[localControllersArray addObject:tabThreeController];
 	[tabThreeController release];
 
-	tabBar.viewControllers = localControllersArray;
+	self.viewControllers = localControllersArray;
 }
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	[self.view addSubview:tabBar.view];
 }
 
 - (void) viewDidUnload
 {
-	[tabBar release];
-	[self.view release];
+	[self release];
 }
 
 - (void) didReceiveMemoryWarning
@@ -83,7 +75,6 @@
 
 - (void) dealloc
 {
-	[tabBar dealloc];
 	[super dealloc];
 }
 
